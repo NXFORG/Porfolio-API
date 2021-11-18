@@ -13,22 +13,22 @@ class Fact {
     }
 
     static get all() {
-        return new Promise((res, rej) => {
+        return new Promise((resolve, reject) => {
             try {
-                res(facts);
+                resolve(facts);
             } catch(err) {
-                rej('Facts not found.');
+                reject('Facts not found.');
             }
         })
     }
 
     static getFactById(id) {
-        return new Promise((rej, res) => {
+        return new Promise((resolve, reject) => {
             try {
-                res(facts.find(f => f.id === id));
+                resolve(facts.find(f => f.id === id ));
             } catch(err) {
-                rej('Fact not found');
-            }
+                reject('Fact not found');
+            } 
         })
     }
 }

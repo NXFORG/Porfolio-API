@@ -10,21 +10,21 @@ class Welcome {
     }
 
     static get all() {
-        return new Promise((res, rej) => {
+        return new Promise((resolve, reject) => {
             try {
-                res(welcomes);
+                resolve(welcomes);
             } catch(err) {
-                rej('Welcome messages not found.');
+                reject('Welcome messages not found.');
             }
         })
     }
 
     static getWelcomeById(id) {
-        return new Promise((rej, res) => {
+        return new Promise((resolve, reject) => {
             try {
-                res(welcomes.find(w => w.id === id));
+                resolve(welcomes.find(w => w.id === id));
             } catch(err) {
-                rej('Welcome message not found');
+                reject('Welcome message not found');
             }
         })
     }

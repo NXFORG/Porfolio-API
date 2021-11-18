@@ -13,11 +13,12 @@ async function index(req, res) {
 async function show(req, res) {
     try {
         const foundFact = await Fact.getFactById(parseInt(req.params.id));
-        res.json(foundFact);
+        await res.json(foundFact);
     }
     catch(err) {
+        console.log(err)
         res.status(404).json(err);
-    };
+    }; 
 };
 
 module.exports = { index, show }
